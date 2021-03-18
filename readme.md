@@ -4,7 +4,7 @@ It is written to retrieve all Bin and Operation pairs using Django Framework and
 The tables in question were previously designed as one to many. The models should be modeled with `many to many` because of
 one operation is to be used for more than one bin and also a bin is to be used for more than one operation. While defining 
 the models in the file models.py, a new model `bin_operation` is created automatically by giving the operation model
-inside the bin model with `ManyToManyField`. By making a request with `prefetch_related` to this new model, access to all 
+inside the bin model with `ManyToManyField`. By making a request to this new model, access to all 
 operation and bin pairs is provided.
 
 

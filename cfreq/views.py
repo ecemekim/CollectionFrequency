@@ -53,8 +53,10 @@ def get_cfreqs(request):
                 OperationBin(bin_id=data[0], operation_id=data[1])
             ])
 
-    # Second, using prefetch_related getting all Operation-Bin Pairs.
+    # Second, getting all Operation-Bin Pairs.
 
-    pairs = Operation.objects.all().prefetch_related('bin_set').values()
+    # pairs = Bin.objects.all().prefetch_related('operation').values()
+    pairs = Bin.operation.through.objects.all().values()
+
     response = JsonResponse({"Bin-Operation Pairs": list(pairs)})
     return response
